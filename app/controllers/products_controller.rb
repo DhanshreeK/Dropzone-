@@ -12,6 +12,24 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def export
+    @product = Spreadsheet::Workbook.new
+    sheet1 = @product.create_worksheet :name => 'Sheet1'
+    sheet2 = @product.create_worksheet :name => 'Sheet2'
+    sheet1.row(0).push("name","price","quantity")
+    @products = Product.all
+    @products.each do |p|
+      sheet1.row(1).push(p.name)
+      sheet1.row(1).push(p.price)
+      sheet1.row(1).push(p.quantity)
+      sheet2.row(0).push("name","price")
+      spreadsheet = StringIO.new
+      @product.write spreadsheet
+      file = "Excelsheet"
+      send_data spreadsheet.string, :filename => "#{file}", :type =>  "application/vnd.ms-excel"
+  end
+end
+
   # GET /products/new
   def new
     @product = Product.new

@@ -1,8 +1,29 @@
+<body style="background-color:lightblue;">
+<div data-uk-sticky="{top:-200, animation: 'uk-animation-slide-top'}">
+<nav class="uk-navbar-container bg-warning" uk-navbar>
+    <div class="uk-navbar-left">
+
+        <ul class="uk-navbar-nav">
+            <li>
+                <a href="#">Product</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active"><a href="#">Active</a></li>
+                        <li><a href="products/new">New Product</a></li>                     
+                    </ul>
+                </div>
+            </li>
+            <li><a href="media_contents/new">Image upload</a></li>
+        </ul>
+
+    </div>
+</nav>
+</div>
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+<h1><font color="red">Products</font></h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -19,8 +40,8 @@
         <td><%= product.price %></td>
         <td><%= product.quantity %></td>
         <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_product_path(product), class: 'btn btn-primary btn-sm' %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +49,13 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<br>
+
+
+<%= link_to 'New Product', new_product_path, class: 'uk-button-danger' %>
+
+<br>
+<br>
+<%=link_to("Export Database to Excel", products_url + "/export", class: 'uk-button-primary' ) %>
+</body>
+<br><br><br>

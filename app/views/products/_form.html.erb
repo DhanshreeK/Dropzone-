@@ -1,3 +1,7 @@
+<body style="background-color:lightblue;">
+<div class="container">
+<div class="col-md-6"></div>
+<div class="col-md-4">
 <%= form_with(model: product, local: true) do |form| %>
   <% if product.errors.any? %>
     <div id="error_explanation">
@@ -10,23 +14,35 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4" align="left">
     <%= form.label :name %>
     <%= form.text_field :name, id: :product_name %>
   </div>
-
-  <div class="field">
+  </div>
+  </div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4" align="left">
     <%= form.label :price %>
     <%= form.text_field :price, id: :product_price %>
   </div>
+  </div>
+  </div>
 
-  <div class="field">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4" align="left">
+  <div class="form-group">
     <%= form.label :quantity %>
     <%= form.text_field :quantity, id: :product_quantity %>
   </div>
+  </div>
+  </div>
 
-  <div class="actions">
+    <div class="form-group">
     <%= form.submit %>
   </div>
 <% end %>
+</div></div></body>

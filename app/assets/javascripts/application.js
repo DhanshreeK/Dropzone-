@@ -10,6 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require dropzone
+//= require uikit
+//= require uikit-components
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
